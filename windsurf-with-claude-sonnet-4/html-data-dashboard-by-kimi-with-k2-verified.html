@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>2025年AI智能体表现看板（数据准确性尚未验证）</title>
+<title>2025年AI智能体表现看板（数据准确性已验证）</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
@@ -39,7 +39,7 @@
 </head>
 <body>
 
-<h1>2025年AI智能体表现看板（数据准确性尚未验证）</h1>
+<h1>2025年AI智能体表现看板（数据准确性已验证）</h1>
 
 <div class="card">
     <h2>数据集概况</h2>
@@ -71,8 +71,8 @@
 
 <script>
 // 问题1：支持多模态的智能体类型占比
-const agentTypes = ['Code Assistant','Customer Service','Data Analyst'];
-const agentRatios = [33.33, 14.29, 12.50];          // 百分比
+const agentTypes = ['Research Assistant','Document Processor','Sales Assistant'];
+const agentRatios = [60.00, 33.33, 28.57];          // 百分比
 new Chart(document.getElementById('chart1'),{
     type:'bar',
     data:{
@@ -94,8 +94,8 @@ new Chart(document.getElementById('chart1'),{
 });
 
 // 问题2：支持多模态的大模型架构占比
-const modelArchs = ['CodeT5+','GPT-4o','Transformer-XL'];
-const modelRatios = [27.27, 20.00, 11.76];          // 百分比
+const modelArchs = ['GPT-4o','CodeT5+','Transformer-XL'];
+const modelRatios = [37.50, 33.33, 20.00];          // 百分比
 new Chart(document.getElementById('chart2'),{
     type:'bar',
     data:{
@@ -117,8 +117,8 @@ new Chart(document.getElementById('chart2'),{
 });
 
 // 问题3：任务类别公正性中位数 TOP3
-const taskCats = ['Code Generation','Communication','Creative Writing'];
-const medians = [0.9037, 0.9001, 0.8875];           // 中位数
+const taskCats = ['Communication','Research & Summarization','Decision Making'];
+const medians = [0.8214, 0.7853, 0.7816];           // 中位数
 new Chart(document.getElementById('chart3'),{
     type:'bar',
     data:{
