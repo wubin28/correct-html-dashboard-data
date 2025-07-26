@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Agentic AI Performance Dashboard (2025)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    body{
+        font-family: Arial,Helvetica,sans-serif;
+        margin:0;
+        padding:1em;
+        background:#f7f9fc;
+        color:#333;
+        line-height:1.5;
+    }
+    h1,h2{
+        text-align:center;
+    }
+    .card{
+        background:#fff;
+        border-radius:6px;
+        margin:1em 0;
+        padding:1em;
+        box-shadow:0 1px 3px rgba(0,0,0,.08);
+    }
+    .chart-container{
+        position:relative;
+        max-width:100%;
+        height:320px;
+    }
+    footer{
+        text-align:center;
+        font-size:.85em;
+        color:#888;
+        margin-top:1em;
+    }
+</style>
+</head>
+<body>
+
+<h1>Agentic AI Performance 看板 (2025)</h1>
+
+<div class="card">
+    <h2>数据集概况</h2>
+    <p>实际读取并处理的记录数：<strong>80 条</strong></p>
+</div>
+
+<div class="card">
+    <h2>问题 1：支持多模态处理的智能体类型占比 TOP3</h2>
+    <div class="chart-container">
+        <canvas id="chart1"></canvas>
+    </div>
+</div>
+
+<div class="card">
+    <h2>问题 2：支持多模态处理的大模型架构占比 TOP3</h2>
+    <div class="chart-container">
+        <canvas id="chart2"></canvas>
+    </div>
+</div>
+
+<div class="card">
+    <h2>问题 3：各任务类别公正性 (bias detection) 中位数 TOP3</h2>
+    <div class="chart-container">
+        <canvas id="chart3"></canvas>
+    </div>
+</div>
+
+<footer>数据来源：Kaggle Agentic AI Performance Dataset 2025</footer>
+
+<script>
+// 问题1：支持多模态的智能体类型占比
+const agentTypes = ['Code Assistant','Customer Service','Data Analyst'];
+const agentRatios = [33.33, 14.29, 12.50];          // 百分比
+new Chart(document.getElementById('chart1'),{
+    type:'bar',
+    data:{
+        labels:agentTypes,
+        datasets:[{
+            label:'占比 (%)',
+            data:agentRatios,
+            backgroundColor:'rgba(120,181,255,.7)',
+            borderColor:'rgba(120,181,255,1)',
+            borderWidth:1
+        }]
+    },
+    options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{legend:{display:false}},
+        scales:{y:{beginAtZero:true}}
+    }
+});
+
+// 问题2：支持多模态的大模型架构占比
+const modelArchs = ['CodeT5+','GPT-4o','Transformer-XL'];
+const modelRatios = [27.27, 20.00, 11.76];          // 百分比
+new Chart(document.getElementById('chart2'),{
+    type:'bar',
+    data:{
+        labels:modelArchs,
+        datasets:[{
+            label:'占比 (%)',
+            data:modelRatios,
+            backgroundColor:'rgba(142,207,127,.7)',
+            borderColor:'rgba(142,207,127,1)',
+            borderWidth:1
+        }]
+    },
+    options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{legend:{display:false}},
+        scales:{y:{beginAtZero:true}}
+    }
+});
+
+// 问题3：任务类别公正性中位数 TOP3
+const taskCats = ['Code Generation','Communication','Creative Writing'];
+const medians = [0.9037, 0.9001, 0.8875];           // 中位数
+new Chart(document.getElementById('chart3'),{
+    type:'bar',
+    data:{
+        labels:taskCats,
+        datasets:[{
+            label:'Bias Detection 中位数',
+            data:medians,
+            backgroundColor:'rgba(255,183,77,.7)',
+            borderColor:'rgba(255,183,77,1)',
+            borderWidth:1
+        }]
+    },
+    options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{legend:{display:false}},
+        scales:{y:{beginAtZero:false}}
+    }
+});
+</script>
+
+</body>
+</html>
