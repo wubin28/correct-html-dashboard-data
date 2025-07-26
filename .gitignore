@@ -66,3 +66,4 @@ pip-log.txt
 .history/
 *~
 *.swp
+~$*.*
